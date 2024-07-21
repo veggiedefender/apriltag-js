@@ -2,7 +2,8 @@
 
 apriltag-js is a TypeScript port of [apriltag-generation](https://github.com/AprilRobotics/apriltag-generation)  with no dependencies. See also the [main AprilTag repo](https://github.com/AprilRobotics/apriltag) and [paper](https://april.eecs.umich.edu/papers/details.php?name=krogius2019iros).
 
-While the reference implementation is geared toward designing and evaluating new tag families, this library only renders them, which is a much easier task. It supports all official tag families, and you can easily use your own. The main contribution of this library is the introduction of a new JSON format for tag families, which are more portable and consistent than the class definitions found in the reference implementation.
+While the reference implementation is geared toward designing and evaluating new tag families, this library only renders them, which is a much easier task. It supports all official tag families, and you can easily use your own.
+
 * `16h5`
 * `25h9`
 * `36h9`
@@ -13,6 +14,8 @@ While the reference implementation is geared toward designing and evaluating new
 * `Custom48h12`
 * `Standard41h12`
 * `Standard52h13`
+
+The main contribution of this library is the introduction of a new JSON format for defining tag families, which is more portable and consistent than the set of Java class definitions found in the reference implementation.
 
 ## Installation
 
@@ -55,7 +58,7 @@ You'll get back a 2D array of characters representing pixels. `w` means white, `
 ]
 ```
 
-What you do with it is up to you! You could render them as ASCII art, create HTML elements or SVG, generate images, or draw them on a canvas.
+What you do with it is up to you! You could render them as ASCII art, create HTML elements or SVG, generate images, or draw them on a canvas. Take a look at the unit tests for this library if you're not sure how to begin.
 
 You can check the size and number of IDs a tag family supports by accessing `family.size` and `family.codes.length` respectively.
 
