@@ -1,0 +1,31 @@
+{
+  "name": "apriltag",
+  "version": "1.0.0",
+  "files": ["dist/**", "families/**"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veggiedefender/apriltag-js.git"
+  },
+  "keywords": [
+    "apriltag",
+    "fiducial"
+  ],
+  "author": "Jesse Li <jessejesse123@gmail.com> (https://jse.li)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veggiedefender/apriltag-js/issues"
+  },
+  "homepage": "https://github.com/veggiedefender/apriltag-js#readme",
+  "description": "Generate AprilTag fiducial markers",
+  "devDependencies": {
+    "prettier": "3.3.3",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.3"
+  }
+}
