@@ -23,22 +23,39 @@ The main contribution of this library is the introduction of a new JSON format f
 npm install apriltag
 ```
 
-You can also just copy and paste the code into your project!
+You can also just copy and paste the code into your project! Or include it on your web page like this:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/apriltag@latest/dist/browser.js"></script>
+```
 
 ## Usage
 
-Import, require, or paste the class so that it's in scope. Import, fetch, or paste a tag family so that it's in scope too.
+If you use npm:
 
 ```ts
 import { AprilTagFamily } from 'apriltag'
 import tagConfig36h11 from 'apriltag/families/36h11.json'
-```
 
-Then initialize the class and call `render`:
-
-```ts
 const family = new AprilTagFamily(tagConfig36h11);
 console.log(family.render(1));
+```
+
+Alternatively, if you're using a plain `<script>` tag:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/apriltag@latest/dist/browser.js"></script>
+<script>
+  async function main() {
+    const rsp = await fetch('https://cdn.jsdelivr.net/npm/apriltag@latest/families/36h11.json')
+    const tagConfig36h11 = await rsp.json()
+
+    const family = new AprilTagFamily(tagConfig36h11)
+    console.log(family.render(1))
+  }
+
+  main()
+</script>
 ```
 
 You'll get back a 2D array of characters representing pixels. `w` means white, `b` means black, and `x` means transparent. More details on the format are in the next section.
