@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { TagFamily } from "./index";
+import { AprilTagFamily } from "./index";
 
 import tagConfig16h5 from "./families/16h5.json";
 import tagConfig25h9 from "./families/25h9.json";
@@ -13,7 +13,7 @@ import tagConfigCustom48h12 from "./families/custom48h12.json";
 import tagConfigStandard41h12 from "./families/standard41h12.json";
 import tagConfigStandard52h13 from "./families/standard52h13.json";
 
-function renderASCII(family: TagFamily, index: number) {
+function renderASCII(family: AprilTagFamily, index: number) {
   const tag = family.render(index);
   const rows: string[] = [];
   for (let y = 0; y < family.size; y++) {
@@ -37,7 +37,7 @@ function renderASCII(family: TagFamily, index: number) {
 }
 
 describe("16h5", () => {
-  const family = new TagFamily(tagConfig16h5);
+  const family = new AprilTagFamily(tagConfig16h5);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -77,7 +77,7 @@ describe("16h5", () => {
 });
 
 describe("25h9", () => {
-  const family = new TagFamily(tagConfig25h9);
+  const family = new AprilTagFamily(tagConfig25h9);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -120,7 +120,7 @@ describe("25h9", () => {
 });
 
 describe("36h9", () => {
-  const family = new TagFamily(tagConfig36h9);
+  const family = new AprilTagFamily(tagConfig36h9);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -166,7 +166,7 @@ describe("36h9", () => {
 });
 
 describe("36h10", () => {
-  const family = new TagFamily(tagConfig36h10);
+  const family = new AprilTagFamily(tagConfig36h10);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -212,7 +212,7 @@ describe("36h10", () => {
 });
 
 describe("36h11", () => {
-  const family = new TagFamily(tagConfig36h11);
+  const family = new AprilTagFamily(tagConfig36h11);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -258,7 +258,7 @@ describe("36h11", () => {
 });
 
 describe("circle21h7", () => {
-  const family = new TagFamily(tagConfigCircle21h7);
+  const family = new AprilTagFamily(tagConfigCircle21h7);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -301,7 +301,7 @@ XXXXXX----██XXXXXX`);
 });
 
 describe("circle49h12", () => {
-  const family = new TagFamily(tagConfigCircle49h12);
+  const family = new AprilTagFamily(tagConfigCircle49h12);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -350,7 +350,7 @@ XXXXXXXX----██XXXXXXXX`);
 });
 
 describe("custom48h12", () => {
-  const family = new TagFamily(tagConfigCustom48h12);
+  const family = new AprilTagFamily(tagConfigCustom48h12);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -396,7 +396,7 @@ describe("custom48h12", () => {
 });
 
 describe("standard41h12", () => {
-  const family = new TagFamily(tagConfigStandard41h12);
+  const family = new AprilTagFamily(tagConfigStandard41h12);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\
@@ -439,7 +439,7 @@ describe("standard41h12", () => {
 });
 
 describe("standard52h13", () => {
-  const family = new TagFamily(tagConfigStandard52h13);
+  const family = new AprilTagFamily(tagConfigStandard52h13);
 
   test("tag 0", () => {
     expect(renderASCII(family, 0)).equals(`\

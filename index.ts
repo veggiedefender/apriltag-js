@@ -1,4 +1,4 @@
-export type TagConfig = {
+export type AprilTagConfig = {
   size: number;
   layout: string;
   codes: number[];
@@ -8,13 +8,13 @@ export type Pixel = "b" | "w" | "x";
 
 export type LayoutPixel = Pixel | "d";
 
-export class TagFamily {
+export class AprilTagFamily {
   size: number;
   codes: number[];
   private layout: LayoutPixel[];
   private numBitsMinusOne: bigint;
 
-  constructor({ size, layout, codes }: TagConfig) {
+  constructor({ size, layout, codes }: AprilTagConfig) {
     this.size = size;
     this.codes = codes;
     this.layout = layout.split("") as LayoutPixel[];

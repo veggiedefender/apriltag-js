@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TagFamily = void 0;
-class TagFamily {
+exports.AprilTagFamily = void 0;
+class AprilTagFamily {
     constructor({ size, layout, codes }) {
         this.size = size;
         this.codes = codes;
@@ -46,7 +46,7 @@ class TagFamily {
         return layoutChar;
     }
 }
-exports.TagFamily = TagFamily;
+exports.AprilTagFamily = AprilTagFamily;
 function newSquare(size) {
     const arr = new Array(size);
     for (let i = 0; i < size; i++) {

@@ -1,8 +1,8 @@
 # apriltag-js
 
-apriltag-js is a small TypeScript port of [apriltag-generation](https://github.com/AprilRobotics/apriltag-generation)  with no dependencies. See also the [main AprilTag repo](https://github.com/AprilRobotics/apriltag) and [paper](https://april.eecs.umich.edu/papers/details.php?name=krogius2019iros).
+apriltag-js is a TypeScript port of [apriltag-generation](https://github.com/AprilRobotics/apriltag-generation)  with no dependencies. See also the [main AprilTag repo](https://github.com/AprilRobotics/apriltag) and [paper](https://april.eecs.umich.edu/papers/details.php?name=krogius2019iros).
 
-It supports all official tag families, and you can easily use your own:
+While the reference implementation is geared toward designing and evaluating new tag families, this library only renders them, which is a much easier task. It supports all official tag families, and you can easily use your own. The main contribution of this library is the introduction of a new JSON format for tag families, which are more portable and consistent than the class definitions found in the reference implementation.
 * `16h5`
 * `25h9`
 * `36h9`
@@ -24,17 +24,17 @@ You can also just copy and paste the code into your project!
 
 ## Usage
 
-Import, require or paste the class so that it's in scope. Import, fetch, or paste a tag family so that it's in scope too.
+Import, require, or paste the class so that it's in scope. Import, fetch, or paste a tag family so that it's in scope too.
 
 ```ts
-import { TagFamily } from 'apriltag'
+import { AprilTagFamily } from 'apriltag'
 import tagConfig36h11 from 'apriltag/families/36h11.json'
 ```
 
 Then initialize the class and call `render`:
 
 ```ts
-const family = new TagFamily(tagConfig36h11);
+const family = new AprilTagFamily(tagConfig36h11);
 console.log(family.render(1));
 ```
 
@@ -55,16 +55,16 @@ You'll get back a 2D array of characters representing pixels. `w` means white, `
 ]
 ```
 
-What happens next is up to you! You could render them as ASCII art, create HTML elements or SVG, generate images, or draw them on a canvas.
+What you do with it is up to you! You could render them as ASCII art, create HTML elements or SVG, generate images, or draw them on a canvas.
 
-You can also check the size and number of IDs a tag family supports by accessing `family.size` and `family.codes.length` respectively.
+You can check the size and number of IDs a tag family supports by accessing `family.size` and `family.codes.length` respectively.
 
 ## Tag family format
 
 Look in the `families/` folder for examples. Tag families must adhere to the following type:
 
 ```ts
-type TagConfig = {
+type AprilTagConfig = {
   size: number;
   layout: string;
   codes: number[];
