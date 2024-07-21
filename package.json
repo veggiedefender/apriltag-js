@@ -9,7 +9,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "vitest",
-    "build": "tsc"
+    "build-module": "tsc",
+    "build-browser": "esbuild browser.ts --bundle --outdir=dist",
+    "build": "npm run build-module && npm run build-browser"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   "homepage": "https://github.com/veggiedefender/apriltag-js#readme",
   "description": "Generate AprilTag fiducial markers",
   "devDependencies": {
+    "esbuild": "0.23.0",
     "prettier": "3.3.3",
     "typescript": "^5.5.3",
     "vitest": "^2.0.3"
