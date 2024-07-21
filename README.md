@@ -1,8 +1,10 @@
 # apriltag-js
 
-apriltag-js is a TypeScript port of [apriltag-generation](https://github.com/AprilRobotics/apriltag-generation)  with no dependencies. See also the [main AprilTag repo](https://github.com/AprilRobotics/apriltag) and [paper](https://april.eecs.umich.edu/papers/details.php?name=krogius2019iros).
+apriltag-js is a TypeScript port of [apriltag-generation](https://github.com/AprilRobotics/apriltag-generation) with no dependencies. See also the [main AprilTag repo](https://github.com/AprilRobotics/apriltag) and [paper](https://april.eecs.umich.edu/papers/details.php?name=krogius2019iros).
 
-While the reference implementation is geared toward designing and evaluating new tag families, this library only renders them, which is a much easier task. It supports all official tag families, and you can easily use your own.
+It lets you generate tags on the client instead of using pre-generated bitmaps. It also introduces a new JSON format for defining tag families.
+
+All official tag families are supported, and you can easily use your own:
 
 * `16h5`
 * `25h9`
@@ -15,19 +17,17 @@ While the reference implementation is geared toward designing and evaluating new
 * `Standard41h12`
 * `Standard52h13`
 
-The main contribution of this library is the introduction of a new JSON format for defining tag families, which is more portable and consistent than the set of Java class definitions found in the reference implementation.
-
 ## Installation
 
 ```sh
 npm install apriltag
 ```
 
-You can also just copy and paste the code into your project! Or include it on your web page like this:
-
 ```html
 <script src="https://cdn.jsdelivr.net/npm/apriltag@latest/dist/browser.js"></script>
 ```
+
+You can also just copy and paste the code into your project!
 
 ## Usage
 
@@ -41,7 +41,7 @@ const family = new AprilTagFamily(tagConfig36h11);
 console.log(family.render(1));
 ```
 
-Alternatively, if you're using a plain `<script>` tag:
+Or if you're using a plain `<script>` tag:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/apriltag@latest/dist/browser.js"></script>
