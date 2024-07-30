@@ -31,7 +31,6 @@ export class AprilTagFamily {
     const im = newSquare<Pixel>(this.size);
 
     for (let i = 0; i < 4; i++) {
-      rotate90(im);
       for (let y = 0; y <= this.size / 2; y++) {
         for (let x = y; x < this.size - 1 - y; x++) {
           const layoutChar = this.layout[y * this.size + x];
@@ -41,6 +40,7 @@ export class AprilTagFamily {
           }
         }
       }
+      rotate90(im);
     }
 
     if (this.size % 2 === 1) {
@@ -48,7 +48,7 @@ export class AprilTagFamily {
       im[h][h] = this.computePixel(this.layout[h * this.size + h], code);
     }
 
-    return rotate90(im);
+    return im;
   }
 
   private computePixel(layoutChar: LayoutPixel, code: bigint): Pixel {
@@ -71,7 +71,7 @@ function newSquare<T>(size: number): T[][] {
   return arr;
 }
 
-function rotate90<T>(im: T[][]): T[][] {
+function rotate90<T>(im: T[][]) {
   const n = im.length;
   for (let y = 0; y < n / 2; y++) {
     for (let x = y; x < n - y - 1; x++) {
@@ -82,5 +82,4 @@ function rotate90<T>(im: T[][]): T[][] {
       im[n - 1 - x][y] = temp;
     }
   }
-  return im;
 }
